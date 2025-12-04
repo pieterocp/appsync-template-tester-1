@@ -11,11 +11,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [24, 22, 20, 18, 16, 14, 12]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 12
+          node-version: ${{ matrix.node-version }}
       - name: Install
         run: yarn install
       - name: Test
@@ -31,8 +34,8 @@ jobs:
       actions: write
       contents: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 12
       - name: Install
