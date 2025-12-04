@@ -79,7 +79,7 @@ export function toStringSetJson(list: Array<string>): { SS: Array<string> } {
 }
 
 /**
- * The same as toMapJSON but only for the properties (the root obect becomes {a: {S: "s"}} rather than {M: {a: {S: "s"}}})
+ * The same as toMapJSON but only for the properties (the root object becomes {a: {S: "s"}} rather than {M: {a: {S: "s"}}})
  */
 export function toMapValues(map: any) {
   const obj = JSON.parse(JSON.stringify(map));
